@@ -16,7 +16,7 @@ from openai import OpenAI
 
 # ── Load API key ─────────────────────────────────────────────────────────────
 load_dotenv()
-GROQ_KEY = os.getenv("GROQ_API_KEY")
+GROQ_KEY = os.getenv("GROQ_API_KEY")or st.secrets.get("GROQ_API_KEY", "")
 if not GROQ_KEY:
     st.error("⚠️  GROQ_API_KEY not found. Add it to .env or Streamlit Secrets.")
     st.stop()
